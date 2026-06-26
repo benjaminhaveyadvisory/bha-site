@@ -1,0 +1,43 @@
+# robots.txt — benjaminhavey.com
+# Policy: open. All standard search and AI crawlers are welcome to
+# index, retrieve, and cite this site's content.
+
+# ── OpenAI ──
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+
+# ── Anthropic ──
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+
+# ── Perplexity ──
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+
+# ── Google (AI training; separate from Search ranking) ──
+User-agent: Google-Extended
+Allow: /
+
+# ── Apple ──
+User-agent: Applebot-Extended
+Allow: /
+
+# ── Common Crawl (feeds many models) ──
+User-agent: CCBot
+Allow: /
+
+# ── Everything else ──
+User-agent: *
+Allow: /

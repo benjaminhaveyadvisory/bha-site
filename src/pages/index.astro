@@ -1,0 +1,266 @@
+---
+import Base from "../layouts/Base.astro";
+import { getCollection } from "astro:content";
+
+const latest = (await getCollection("articles", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const fmt = (d) =>
+  d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+---
+<Base>
+<header class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow two"></div>
+  <div class="wrap">
+    <div class="eyebrow">Technology &amp; Innovation Advisory</div>
+    <h1>
+      <span class="line"><span>At the intersection</span></span>
+      <span class="line"><span>of world-class storytelling</span></span>
+      <span class="line"><span>and <em>advanced technology</em>.</span></span>
+    </h1>
+    <p class="lede">I'm a technology executive and studio creative innovator with 25+ years building the future of entertainment. I've launched pioneering studio divisions—founding Disney's StudioLAB—and led large-scale product initiatives at NBCUniversal and Apple. My philosophy: building secure, horizontal innovation infrastructure that amplifies human creativity, enhances the consumer experience, and delivers real time and cost efficiency.</p>
+    <div class="callouts">
+      <span class="chip">Emmy Award winner</span>
+      <span class="chip">8 patents &amp; filings — AI, ML, AR</span>
+      <span class="chip">Board, Creators Guild of America</span>
+    </div>
+  </div>
+</header>
+
+<section class="latest" id="articles-preview">
+  <div class="wrap">
+    <div class="latest-head reveal">
+      <div>
+        <div class="sec-label">Latest Articles</div>
+        <h2 class="sec-head">Field notes on <em>media &amp; technology</em>.</h2>
+      </div>
+      <a class="latest-all" href="/articles">All articles →</a>
+    </div>
+    <div class="latest-grid">
+      {latest.map((article) => (
+        <a class="latest-card reveal" href={`/articles/${article.id}`}>
+          {article.data.hero && (
+            <div class="latest-thumb"><img src={article.data.hero} alt={article.data.heroAlt ?? article.data.title} loading="lazy" /></div>
+          )}
+          <div class="latest-body">
+            <time datetime={article.data.date.toISOString()}>{fmt(article.data.date)}</time>
+            <h3>{article.data.title}</h3>
+            <p>{article.data.summary}</p>
+            <span class="latest-read">Read article →</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="pillars" id="focus">
+  <div class="wrap">
+    <div class="sec-label reveal">Areas of Focus</div>
+    <h2 class="sec-head reveal">Where creative ambition meets <em>engineering discipline</em>.</h2>
+    <div class="pillar-grid">
+      <div class="pillar reveal">
+        <div class="pn">01</div>
+        <h3>Human-in-the-Loop AI</h3>
+        <p>Architecting intelligent automation frameworks that optimize production speed while strictly maintaining artist agency and creative control.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pn">02</div>
+        <h3>Ethical AI &amp; Governance</h3>
+        <p>Designing secure IP perimeters and enterprise data guardrails that prevent proprietary studio assets from leaking into public foundational models.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pn">03</div>
+        <h3>Agentic Distribution &amp; Discovery</h3>
+        <p>Advising publishers and brands on integrating with agent frameworks and countering the traffic impact of an AI-mediated, zero-click search era.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pn">04</div>
+        <h3>Immersive &amp; Interactive Content</h3>
+        <p>Pioneering next-generation storytelling across AR, VR, and XR, built on real-time graphics engines and spatial formats.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pn">05</div>
+        <h3>Modern Media Pipelines</h3>
+        <p>Engineering cloud-native, serverless infrastructure and automated metadata indexing to streamline asset-heavy studio workflows.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pn">06</div>
+        <h3>Distribution &amp; Streaming</h3>
+        <p>Leveraging spatial video, 3D streaming architectures, and unified delivery frameworks to optimize global content reach.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio" id="advisory">
+  <div class="wrap">
+    <div class="sec-label reveal">Current Portfolio</div>
+    <h2 class="sec-head reveal">Accelerating next-gen platforms &amp; <em>industry governance</em>.</h2>
+    <div class="port-grid">
+      <div class="card reveal">
+        <div class="role">Board of Directors</div>
+        <h3>Creators Guild of America</h3>
+        <p>Shaping industry guardrails for AI tools across the creative workforce.</p>
+      </div>
+      <div class="card reveal">
+        <div class="role">Advisory Board</div>
+        <h3>Infinity Festival</h3>
+        <p>Guiding the intersection of Hollywood storytelling and Silicon Valley technology.</p>
+      </div>
+      <div class="card reveal">
+        <div class="role">Advisor</div>
+        <h3>Miris</h3>
+        <p>Cloud-based, browser-native 3D spatial streaming platforms.</p>
+      </div>
+      <div class="card reveal">
+        <div class="role">Advisor</div>
+        <h3>Playbook</h3>
+        <p>AI-driven asset management and automated semantic metadata indexing.</p>
+      </div>
+      <div class="card reveal">
+        <div class="role">Advisor</div>
+        <h3>IMGN.ai</h3>
+        <p>Generative, LLM-powered script breakdown and pre-production visualization.</p>
+      </div>
+      <div class="card reveal">
+        <div class="role">Advisor</div>
+        <h3>Toybox Entertainment</h3>
+        <p>AI-native TV production company focused on competition shows.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="sec-label reveal">Services</div>
+    <h2 class="sec-head reveal">How we can <em>work together</em>.</h2>
+    <div class="svc-grid">
+
+      <div class="svc-card reveal">
+        <div class="svc-num">01</div>
+        <h3>Board &amp; Advisory Board</h3>
+        <p>You've built something. Now you need someone in the room who's done it before — at scale, across disciplines, and at companies where the stakes were real.</p>
+        <p>I bring 25+ years of technology and product leadership to board and advisory roles, with direct experience founding studio innovation divisions, navigating enterprise AI adoption, and operating at the intersection of creative and engineering organizations. I ask the questions that challenge assumptions before they become expensive mistakes, and I have the pattern recognition to spot what's actually new versus what's a familiar problem with a new label.</p>
+        <p>Engagements range from formal board seats to advisory relationships structured around specific strategic inflection points — a platform decision, a fundraise, a partnership you're trying to pressure-test.</p>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="svc-num">02</div>
+        <h3>Innovation Strategy</h3>
+        <p>Most organizations don't have an innovation problem. They have a prioritization problem — too many ideas, not enough discipline about which ones to pursue and in what order.</p>
+        <p>I work with leadership teams to build innovation infrastructure that's horizontal by design: frameworks that serve the whole organization rather than a single department, governance models that protect proprietary IP while enabling responsible AI adoption, and technology roadmaps grounded in what's actually shipping today rather than what's promised on a keynote stage.</p>
+        <p>Engagements typically begin with an honest assessment of where you are, followed by a structured strategy process that ends with something your team can actually execute — not a deck that lives in a shared drive.</p>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="svc-num">03</div>
+        <h3>Fractional CPO / CTO</h3>
+        <p>Some organizations need senior product or technology leadership before they're ready to hire it full-time. That's the gap I fill.</p>
+        <p>As a fractional CPO or CTO, I operate as a working executive — not a consultant who delivers recommendations and disappears. I sit in the team meetings, make the prioritization calls, hire and develop the people, and build the processes that make a permanent hire successful when the time comes. My background spans product strategy, engineering infrastructure, and the creative-technical interface that most media and entertainment companies find hardest to navigate.</p>
+        <p>Engagements are scoped to fit the stage of the organization — from a 90-day sprint to establish the function, to an ongoing part-time role through a defined phase of growth.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="heritage" id="heritage">
+  <div class="wrap">
+    <div class="sec-label reveal">Corporate Heritage</div>
+    <h2 class="sec-head reveal">A career anchored in <em>pioneering platforms</em>.</h2>
+
+    <div class="her-row reveal">
+      <div>
+        <div class="her-name">Universal Pictures</div>
+        <div class="her-when">2022 — Present</div>
+      </div>
+      <p class="her-note">Global studio technology leadership across direct-to-consumer initiatives, serverless data frameworks, and workflow automation.</p>
+    </div>
+
+    <div class="her-row reveal">
+      <div>
+        <div class="her-name">The Walt Disney Studios</div>
+        <div class="her-when">2015 — 2022</div>
+      </div>
+      <p class="her-note">Founded StudioLAB and established the Partner Innovation Model, building an elite innovation hub serving Disney, Lucasfilm, Pixar, Searchlight, and 20th Century Studios.</p>
+    </div>
+
+    <div class="her-row reveal">
+      <div>
+        <div class="her-name">Apple</div>
+        <div class="her-when">2003 — 2005</div>
+      </div>
+      <p class="her-note">Product leadership driving mobile video platform development and the adoption of MPEG-4 as an industry standard.</p>
+    </div>
+
+    <div class="her-row reveal">
+      <div>
+        <div class="her-name">NBC</div>
+        <div class="her-when">1999 — 2001</div>
+      </div>
+      <p class="her-note">Digital media and broadcast technology during the network's early push onto the consumer internet.</p>
+    </div>
+
+    <div class="her-row reveal">
+      <div>
+        <div class="her-name">Netscape Communications</div>
+        <div class="her-when">1996 — 1999</div>
+      </div>
+      <p class="her-note">Early-stage technology evangelism for HTML4, the Document Object Model, and JavaScript during the dawn of the consumer internet.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="recognition" id="recognition">
+  <div class="wrap">
+    <div class="sec-label reveal">Recognition &amp; patents</div>
+    <div class="rec-grid">
+      <div class="rec-col reveal">
+        <h4>Honors</h4>
+        <div class="emmy-accent">
+          <span class="emmy-mark">★</span>
+          <div>
+            <strong>Primetime Emmy Award</strong>
+            <span>Recognized for excellence in technology &amp; innovation</span>
+          </div>
+        </div>
+        <ul>
+          <li>Emmy Award nominee</li>
+          <li>Webby Award nomination</li>
+        </ul>
+      </div>
+      <div class="rec-col reveal">
+        <h4>Patents &amp; filings</h4>
+        <ul class="pat-list">
+          <li><a href="https://patents.google.com/patent/US11610239B2" target="_blank" rel="noopener">Machine-learning, user-specific evaluations <span class="pat-no">US 11,610,239</span></a></li>
+          <li><a href="https://patents.google.com/patent/US10777008B2" target="_blank" rel="noopener">Drones generating air-flow effects for VR / AR users <span class="pat-no">US 10,777,008</span></a></li>
+          <li><a href="https://patents.google.com/patent/US10311917B2" target="_blank" rel="noopener">Personalized video featuring a selected person <span class="pat-no">US 10,311,917</span></a></li>
+          <li><a href="https://patents.google.com/patent/US10671670B2" target="_blank" rel="noopener">Graph-based content browsing &amp; discovery <span class="pat-no">US 10,671,670</span></a></li>
+          <li><a href="https://patents.google.com/patent/US10140754B1" target="_blank" rel="noopener">Modeling lighting for location scouting <span class="pat-no">US 10,140,754</span></a></li>
+          <li><a href="https://patents.google.com/patent/US20250209435A1" target="_blank" rel="noopener">Tiered digital rights for content packages <span class="pat-no">App. 2025/0209435</span></a></li>
+          <li><a href="https://patents.google.com/patent/US20200019370A1" target="_blank" rel="noopener">Improvisational storytelling AI agent <span class="pat-no">App. 2020/0019370</span></a></li>
+          <li><a href="https://patents.google.com/patent/US20160062967A1" target="_blank" rel="noopener">Measuring sentiment of text in context <span class="pat-no">App. 2016/0062967</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-glow"></div>
+  <div class="wrap">
+    <div class="contact-side reveal" style="text-align:center; max-width:620px; margin:0 auto;">
+      <div class="sec-label" style="justify-content:center;">Get in touch</div>
+      <h2>Let's talk about <em>what you're building</em>.</h2>
+      <p style="margin-left:auto; margin-right:auto;">Available for advisory work at the intersection of media, entertainment, and emerging technology.</p>
+      <div class="contact-direct" style="font-size:1.3rem;"><a href="mailto:me@benjaminhavey.com">me@benjaminhavey.com</a></div>
+      <div class="contact-meta">Los Angeles · <a href="https://www.linkedin.com/in/benjaminhavey/" target="_blank" rel="noopener">LinkedIn</a></div>
+    </div>
+  </div>
+</section>
+</Base>

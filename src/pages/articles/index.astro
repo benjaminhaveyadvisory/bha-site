@@ -1,0 +1,36 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getCollection } from "astro:content";
+
+const articles = (await getCollection("articles", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const fmt = (d) =>
+  d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+---
+<Base title="Articles — Ben Havey" description="Writing on media, AI, immersive content, and the technology reshaping entertainment.">
+  <section class="articles-hero">
+    <div class="hero-glow"></div>
+    <div class="wrap">
+      <div class="sec-label">Articles</div>
+      <h1 style="font-family:'Fraunces',serif; font-weight:400; font-size:clamp(2.4rem,5vw,4rem); line-height:1.05; letter-spacing:-0.02em;">Notes on <em style="font-style:italic; color:var(--accent);">media &amp; technology</em>.</h1>
+      <p class="lede" style="opacity:1; animation:none; margin-top:24px;">Writing on AI, immersive content, studio infrastructure, and the shifts reshaping how stories get made and found.</p>
+
+      {articles.length === 0 && (
+        <p style="margin-top:48px; color:var(--ink-dim); font-style:italic;">First pieces coming soon.</p>
+      )}
+
+      <div class="article-list">
+        {articles.map((article) => (
+          <a class="article-row" href={`/articles/${article.id}`}>
+            <time datetime={article.data.date.toISOString()}>{fmt(article.data.date)}</time>
+            <div>
+              <h3>{article.data.title}</h3>
+              <p>{article.data.summary}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,112 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const articles = await getCollection("articles", ({ data }) => !data.draft);
+  return articles.map((article) => ({
+    params: { slug: article.id },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+
+// Series navigation: find sibling parts in the same series
+let prevPart = null;
+let nextPart = null;
+if (article.data.seriesSlug && article.data.seriesPart) {
+  const siblings = (await getCollection("articles", ({ data }) => !data.draft))
+    .filter((a) => a.data.seriesSlug === article.data.seriesSlug)
+    .sort((a, b) => (a.data.seriesPart ?? 0) - (b.data.seriesPart ?? 0));
+  const idx = siblings.findIndex((a) => a.id === article.id);
+  if (idx > 0) prevPart = siblings[idx - 1];
+  if (idx >= 0 && idx < siblings.length - 1) nextPart = siblings[idx + 1];
+}
+
+const fmt = (d) =>
+  d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": article.data.title,
+  "description": article.data.summary,
+  "datePublished": article.data.date.toISOString(),
+  "dateModified": article.data.date.toISOString(),
+  "url": `https://benjaminhavey.com/articles/${article.id}`,
+  ...(article.data.hero ? {
+    "image": {
+      "@type": "ImageObject",
+      "url": `https://benjaminhavey.com${article.data.hero}`,
+      "width": 1200,
+      "height": 630
+    }
+  } : {}),
+  "author": {
+    "@type": "Person",
+    "name": "Ben Havey",
+    "url": "https://benjaminhavey.com",
+    "jobTitle": "Technology & Innovation Executive",
+    "sameAs": ["https://www.linkedin.com/in/benjaminhavey/"]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Ben Havey",
+    "url": "https://benjaminhavey.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://benjaminhavey.com/articles/${article.id}`
+  }
+};
+---
+<Base title={`${article.data.title} — Ben Havey`} description={article.data.summary}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <article class="post">
+    <div class="hero-glow" style="opacity:0.5;"></div>
+    <div class="post-wrap">
+      <a class="back-link" href="/articles">← All articles</a>
+      <div class="post-meta">{fmt(article.data.date)}{article.data.series ? ` · ${article.data.series}` : ""}</div>
+      <h1>{article.data.title}</h1>
+      {article.data.hero && (
+        <img class="post-hero" src={article.data.hero} alt={article.data.heroAlt ?? article.data.title} />
+      )}
+      <div class="body">
+        <Content />
+      </div>
+
+      {article.data.series && (prevPart || nextPart) && (
+        <nav class="series-nav">
+          {prevPart ? (
+            <a class="series-link prev" href={`/articles/${prevPart.id}`}>
+              <div class="dir">← Previous in series</div>
+              <div class="st">{prevPart.data.title}</div>
+            </a>
+          ) : (
+            <span class="series-link prev disabled">
+              <div class="dir">← Previous in series</div>
+              <div class="st">This is the first part</div>
+            </span>
+          )}
+          {nextPart ? (
+            <a class="series-link next" href={`/articles/${nextPart.id}`}>
+              <div class="dir">Next in series →</div>
+              <div class="st">{nextPart.data.title}</div>
+            </a>
+          ) : (
+            <span class="series-link next disabled">
+              <div class="dir">Next in series →</div>
+              <div class="st">Coming soon</div>
+            </span>
+          )}
+        </nav>
+      )}
+
+      {article.data.series && !prevPart && !nextPart && (
+        <div class="series-context">Part of the <strong>{article.data.series}</strong> series. More parts coming soon.</div>
+      )}
+    </div>
+  </article>
+</Base>

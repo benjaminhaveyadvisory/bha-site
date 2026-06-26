@@ -1,0 +1,22 @@
+# Ben Havey
+
+> Emmy Award-winning technology executive and studio creative innovator with 25+ years building the future of entertainment. Founder of Disney's StudioLAB, with leadership roles at Universal Pictures, Apple, NBC, and Netscape. Writes on AI, agentic discovery, media technology, and the shifts reshaping how stories get made and found.
+
+## About
+
+- [Ben Havey — home](https://benjaminhavey.com): Bio, areas of focus, advisory work, corporate heritage (Universal Pictures, The Walt Disney Studios, Apple, NBC, Netscape), patents, and Emmy recognition.
+
+## Articles
+
+- [The LLM Wars: Who's Winning the Battle for Your Brain?](https://benjaminhavey.com/articles/llm-wars): How people adopt and abandon ChatGPT, Gemini, and Claude — and why consumer-AI loyalty is paper-thin. Part 1 of the State of the Union in AI series.
+- [The Google Zero Era Is Here](https://benjaminhavey.com/articles/google-zero): The structural shift from search results to AI answer engines, the Referral Quality Paradox, and Generative Engine Optimization (GEO).
+- [Welcome to the Era of Agentic Discovery](https://benjaminhavey.com/articles/agentic-discovery): How AI agents are replacing keyword search for media and retail, and the new playbook of direct data feeds and in-chat commerce.
+- [The "Lab Bench" Just Became Obsolete: The Rise of the AI Scientist](https://benjaminhavey.com/articles/ai-scientist): A Nature study describing a closed-loop, automated R&D system, and the shift of the human role from execution to curation.
+- [The "Inference Tax" Just Dropped: Why TurboQuant Is a Game Changer](https://benjaminhavey.com/articles/turboquant): Google Research's zero-overhead KV-cache compression, the hardware gains, and why Jevons Paradox means demand expands.
+
+## Topics
+
+- AI distribution and agentic commerce
+- Generative Engine Optimization (GEO) and AI-mediated discovery
+- Studio and media technology infrastructure
+- Immersive content, VR/AR, and emerging platforms

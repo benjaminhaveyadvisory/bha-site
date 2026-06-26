@@ -1,0 +1,76 @@
+---
+import "../styles/global.css";
+const { title = "Ben Havey — At the Intersection of Storytelling & Technology", description = "Technology executive and studio creative innovator. 25+ years launching pioneering studio divisions and leading large-scale product initiatives across NBCUniversal, Disney, and Apple." } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta property="og:title" content="Ben Havey — Storytelling & Technology" />
+  <meta property="og:description" content="Technology executive and studio creative innovator. Advisory at the intersection of media, AI, and immersive content." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://benjaminhavey.com" />
+  <meta property="og:image" content="https://benjaminhavey.com/images/og-homepage.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://benjaminhavey.com/images/og-homepage.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,0,500;9..144,1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ben Havey",
+    "alternateName": "Benjamin Havey",
+    "url": "https://benjaminhavey.com",
+    "jobTitle": "Technology & Innovation Executive",
+    "description": "Emmy Award-winning technology executive and studio creative innovator working at the intersection of media, entertainment, and emerging technology.",
+    "address": { "@type": "PostalAddress", "addressLocality": "Los Angeles", "addressRegion": "CA", "addressCountry": "US" },
+    "sameAs": ["https://www.linkedin.com/in/benjaminhavey/"],
+    "alumniOf": [
+      { "@type": "Organization", "name": "The Walt Disney Studios" },
+      { "@type": "Organization", "name": "NBCUniversal" },
+      { "@type": "Organization", "name": "Apple" }
+    ],
+    "knowsAbout": ["Artificial Intelligence", "Media Technology", "Agentic Commerce", "Immersive Content", "Studio Infrastructure", "Generative Engine Optimization"]
+  })} />
+
+</head>
+<body>
+<nav id="nav">
+  <a class="mark" href="/" style="text-decoration:none;color:inherit;">Ben Havey</a>
+  <div class="links">
+    <a href="/#focus">Focus</a>
+    <a href="/#advisory">Advisory</a>
+    <a href="/#services">Services</a>
+    <a href="/#heritage">Heritage</a>
+    <a href="/#recognition">Recognition</a>
+    <a href="/articles">Articles</a>
+    <a href="/#contact">Contact</a>
+  </div>
+</nav>
+
+<slot />
+
+<footer>© 2026 Ben Havey · Los Angeles</footer>
+
+<script is:inline>
+const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 30));
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('in'), (i % 6) * 75);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.14 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
