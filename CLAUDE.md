@@ -125,5 +125,5 @@ Do NOT use ImageMagick to render SVG text — it produces broken letter spacing.
 
 ## Author
 Ben Havey · me@benjaminhavey.com · Los Angeles
-Emmy Award winner · 11 patents (AI, ML, AR) · Founded Disney StudioLAB
+Emmy Award winner · 10 patents (AI, ML, AR) · Founded Disney StudioLAB
 Current: Global studio technology leadership at Universal Pictures / NBCUniversal
