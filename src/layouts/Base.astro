@@ -52,14 +52,31 @@ const { title = "Ben Havey — At the Intersection of Storytelling & Technology"
     <a href="/articles">Articles</a>
     <a href="/#contact">Contact</a>
   </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+  <nav class="mobile-links">
+    <a href="/#focus">Focus</a>
+    <a href="/#advisory">Advisory</a>
+    <a href="/#services">Services</a>
+    <a href="/#heritage">Heritage</a>
+    <a href="/#recognition">Recognition</a>
+    <a href="/articles">Articles</a>
+    <a href="/#contact">Contact</a>
+  </nav>
+</div>
+<div class="mobile-overlay" id="mobileOverlay"></div>
 
 <slot />
 
 <footer>© 2026 Ben Havey · Los Angeles</footer>
 
 <script is:inline>
-const nav = document.getElementById('nav');
+  const nav = document.getElementById('nav');
   addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 30));
 
   const io = new IntersectionObserver((entries) => {
@@ -71,6 +88,32 @@ const nav = document.getElementById('nav');
     });
   }, { threshold: 0.14 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Mobile menu
+  const toggle   = document.getElementById('navToggle');
+  const menu     = document.getElementById('mobileMenu');
+  const overlay  = document.getElementById('mobileOverlay');
+  const closeBtn = document.getElementById('mobileClose');
+
+  function openMenu() {
+    menu.classList.add('open');
+    overlay.classList.add('open');
+    toggle.setAttribute('aria-expanded', 'true');
+    menu.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    menu.classList.remove('open');
+    overlay.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  toggle.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  overlay.addEventListener('click', closeMenu);
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 </script>
 </body>
 </html>
