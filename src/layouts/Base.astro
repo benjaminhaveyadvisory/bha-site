@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 const { title = "Ben Havey — At the Intersection of Storytelling & Technology", description = "Technology executive and studio creative innovator. 25+ years launching pioneering studio divisions and leading large-scale product initiatives across NBCUniversal, Disney, and Apple." } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, "https://benjaminhavey.com");
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -8,6 +9,7 @@ const { title = "Ben Havey — At the Intersection of Storytelling & Technology"
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
+  <link rel="canonical" href={canonicalURL} />
   <meta name="description" content={description} />
   <meta property="og:title" content="Ben Havey — Storytelling & Technology" />
   <meta property="og:description" content="Technology executive and studio creative innovator. Advisory at the intersection of media, AI, and immersive content." />
