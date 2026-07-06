@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 
 const latest = (await getCollection("articles", ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 3);
+  .slice(0, 4);
 
 const fmt = (d) =>
   d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
