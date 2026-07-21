@@ -15,29 +15,39 @@ const fmt = (d) =>
   <div class="hero-glow two"></div>
   <div class="wrap">
     <div class="hero-orbits" aria-hidden="true">
-      <svg viewBox="0 0 640 130" preserveAspectRatio="xMinYMid meet" xmlns="http://www.w3.org/2000/svg">
-        <!-- concentric orbits -->
+      <svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
         <g class="orbit-system">
-          <circle cx="65" cy="65" r="18" class="orbit-ring" />
-          <circle cx="65" cy="65" r="36" class="orbit-ring" />
-          <circle cx="65" cy="65" r="56" class="orbit-ring dashed" />
-          <circle cx="65" cy="65" r="3.5" class="orbit-core" />
-          <g class="orbit-spin slow">
-            <circle cx="65" cy="29" r="2.5" class="orbit-node gold" />
+          <!-- concentric orbit rings -->
+          <circle cx="150" cy="150" r="34"  class="orbit-ring" />
+          <circle cx="150" cy="150" r="66"  class="orbit-ring" />
+          <circle cx="150" cy="150" r="98"  class="orbit-ring dashed" />
+          <circle cx="150" cy="150" r="130" class="orbit-ring faint" />
+
+          <!-- glowing core -->
+          <circle cx="150" cy="150" r="12" class="orbit-halo" />
+          <circle cx="150" cy="150" r="5"  class="orbit-core" />
+
+          <!-- tick marks around outer ring -->
+          <g class="orbit-ticks">
+            <line x1="150" y1="14"  x2="150" y2="24"  class="orbit-tick" />
+            <line x1="150" y1="276" x2="150" y2="286" class="orbit-tick" />
+            <line x1="14"  y1="150" x2="24"  y2="150" class="orbit-tick" />
+            <line x1="276" y1="150" x2="286" y2="150" class="orbit-tick" />
+          </g>
+
+          <!-- orbiting bodies -->
+          <g class="orbit-spin fast">
+            <circle cx="150" cy="116" r="4"   class="orbit-node gold" />
           </g>
           <g class="orbit-spin mid">
-            <circle cx="101" cy="65" r="2" class="orbit-node blue" />
+            <circle cx="150" cy="84"  r="3.2" class="orbit-node blue" />
+            <circle cx="216" cy="150" r="2.4" class="orbit-node gold" />
           </g>
-          <g class="orbit-spin fast">
-            <circle cx="65" cy="47" r="1.8" class="orbit-node gold" />
+          <g class="orbit-spin slow">
+            <circle cx="150" cy="52"  r="3.6" class="orbit-node gold" />
+            <circle cx="248" cy="150" r="2.6" class="orbit-node blue" />
           </g>
         </g>
-        <!-- baseline rule with ticks -->
-        <line x1="140" y1="65" x2="640" y2="65" class="orbit-rule" />
-        <line x1="140" y1="60" x2="140" y2="70" class="orbit-tick" />
-        <line x1="300" y1="62" x2="300" y2="68" class="orbit-tick" />
-        <line x1="460" y1="62" x2="460" y2="68" class="orbit-tick" />
-        <circle cx="640" cy="65" r="2" class="orbit-node gold" />
       </svg>
     </div>
     <div class="eyebrow">Technology &amp; Innovation Advisory</div>
