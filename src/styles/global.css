@@ -117,7 +117,7 @@
   .hero .wrap { position: relative; z-index: 2; }
   /* ── Hero orbit graphic (banner: edge-on orbital system) ── */
   .hero-orbits {
-    width: calc(100% + 80px); margin: -30px -40px 30px; height: 210px;
+    width: calc(100% + 80px); margin: 0 -40px 64px; height: 210px;
     overflow: hidden;
     -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
             mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
@@ -132,7 +132,7 @@
   .orbit-node.blue { fill: var(--accent); }
   .orbit-tick { stroke: var(--gold); stroke-width: 1.4; opacity: 0.55; }
   @media (prefers-reduced-motion: reduce) { .orbit-system animateMotion { display: none; } }
-  @media (max-width: 640px) { .hero-orbits { height: 150px; margin: -10px -40px 24px; } }
+  @media (max-width: 640px) { .hero-orbits { height: 150px; margin: 0 -40px 44px; } }
 
   .eyebrow {
     font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase;
