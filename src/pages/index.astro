@@ -14,6 +14,32 @@ const fmt = (d) =>
   <div class="hero-glow"></div>
   <div class="hero-glow two"></div>
   <div class="wrap">
+    <div class="hero-orbits" aria-hidden="true">
+      <svg viewBox="0 0 640 130" preserveAspectRatio="xMinYMid meet" xmlns="http://www.w3.org/2000/svg">
+        <!-- concentric orbits -->
+        <g class="orbit-system">
+          <circle cx="65" cy="65" r="18" class="orbit-ring" />
+          <circle cx="65" cy="65" r="36" class="orbit-ring" />
+          <circle cx="65" cy="65" r="56" class="orbit-ring dashed" />
+          <circle cx="65" cy="65" r="3.5" class="orbit-core" />
+          <g class="orbit-spin slow">
+            <circle cx="65" cy="29" r="2.5" class="orbit-node gold" />
+          </g>
+          <g class="orbit-spin mid">
+            <circle cx="101" cy="65" r="2" class="orbit-node blue" />
+          </g>
+          <g class="orbit-spin fast">
+            <circle cx="65" cy="47" r="1.8" class="orbit-node gold" />
+          </g>
+        </g>
+        <!-- baseline rule with ticks -->
+        <line x1="140" y1="65" x2="640" y2="65" class="orbit-rule" />
+        <line x1="140" y1="60" x2="140" y2="70" class="orbit-tick" />
+        <line x1="300" y1="62" x2="300" y2="68" class="orbit-tick" />
+        <line x1="460" y1="62" x2="460" y2="68" class="orbit-tick" />
+        <circle cx="640" cy="65" r="2" class="orbit-node gold" />
+      </svg>
+    </div>
     <div class="eyebrow">Technology &amp; Innovation Advisory</div>
     <h1>
       <span class="line"><span>At the intersection</span></span>
