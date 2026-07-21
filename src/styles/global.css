@@ -115,26 +115,24 @@
   .hero-glow.two { top: auto; bottom: -20%; left: -10%; right: auto; width: 560px; height: 560px;
     background: radial-gradient(circle, rgba(201,168,106,0.10), transparent 60%); }
   .hero .wrap { position: relative; z-index: 2; }
-  /* ── Hero orbit graphic ── */
+  /* ── Hero orbit graphic (banner: edge-on orbital system) ── */
   .hero-orbits {
-    width: 300px; height: 300px; max-width: 62vw; margin: -10px 0 40px -8px;
-    opacity: 0; animation: rise 1s 0.05s forwards;
+    width: calc(100% + 80px); margin: -30px -40px 30px; height: 210px;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    opacity: 0; animation: rise 1.1s 0.05s forwards;
   }
-  .hero-orbits svg { width: 100%; height: 100%; display: block; overflow: visible; }
+  .hero-orbits svg { width: 100%; height: 100%; display: block; }
   .orbit-ring { fill: none; stroke: var(--gold); stroke-width: 1.1; opacity: 0.5; }
-  .orbit-ring.dashed { stroke-dasharray: 3 7; opacity: 0.34; }
-  .orbit-ring.faint { opacity: 0.16; }
-  .orbit-halo { fill: var(--gold); opacity: 0.14; }
-  .orbit-core { fill: var(--gold); }
+  .orbit-ring.dashed { stroke-dasharray: 3 8; opacity: 0.34; }
+  .orbit-ring.faint { opacity: 0.15; }
+  .orbit-core { fill: #e0c488; }
   .orbit-node.gold { fill: var(--gold); }
   .orbit-node.blue { fill: var(--accent); }
-  .orbit-tick { stroke: var(--gold); stroke-width: 1.2; opacity: 0.55; }
-  .orbit-spin { transform-origin: 150px 150px; animation: orbit 40s linear infinite; }
-  .orbit-spin.mid  { animation-duration: 26s; animation-direction: reverse; }
-  .orbit-spin.fast { animation-duration: 16s; }
-  @keyframes orbit { to { transform: rotate(360deg); } }
-  @media (prefers-reduced-motion: reduce) { .orbit-spin { animation: none; } }
-  @media (max-width: 640px) { .hero-orbits { width: 200px; height: 200px; margin: 0 0 28px -6px; } }
+  .orbit-tick { stroke: var(--gold); stroke-width: 1.4; opacity: 0.55; }
+  @media (prefers-reduced-motion: reduce) { .orbit-system animateMotion { display: none; } }
+  @media (max-width: 640px) { .hero-orbits { height: 150px; margin: -10px -40px 24px; } }
 
   .eyebrow {
     font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase;

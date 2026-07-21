@@ -15,37 +15,61 @@ const fmt = (d) =>
   <div class="hero-glow two"></div>
   <div class="wrap">
     <div class="hero-orbits" aria-hidden="true">
-      <svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
-        <g class="orbit-system">
-          <!-- concentric orbit rings -->
-          <circle cx="150" cy="150" r="34"  class="orbit-ring" />
-          <circle cx="150" cy="150" r="66"  class="orbit-ring" />
-          <circle cx="150" cy="150" r="98"  class="orbit-ring dashed" />
-          <circle cx="150" cy="150" r="130" class="orbit-ring faint" />
+      <svg viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice"
+           xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <!-- orbital paths (tilted, edge-on ellipses) -->
+          <path id="o1" d="M 350 200 A 250 75  0 1 0 850  200 A 250 75  0 1 0 350 200" />
+          <path id="o2" d="M 180 200 A 420 126 0 1 0 1020 200 A 420 126 0 1 0 180 200" />
+          <path id="o3" d="M 40  200 A 560 168 0 1 0 1160 200 A 560 168 0 1 0 40  200" />
+          <path id="o4" d="M -90 200 A 690 207 0 1 0 1290 200 A 690 207 0 1 0 -90 200" />
+          <radialGradient id="core-glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"  stop-color="#e0c488" stop-opacity="0.55" />
+            <stop offset="100%" stop-color="#c9a86a" stop-opacity="0" />
+          </radialGradient>
+        </defs>
+
+        <g class="orbit-system" transform="rotate(-9 600 200)">
+          <!-- concentric elliptical orbits -->
+          <use href="#o4" xlink:href="#o4" class="orbit-ring faint" />
+          <use href="#o3" xlink:href="#o3" class="orbit-ring" />
+          <use href="#o2" xlink:href="#o2" class="orbit-ring dashed" />
+          <use href="#o1" xlink:href="#o1" class="orbit-ring" />
+
+          <!-- axis ticks at the widest orbit's vertices -->
+          <line x1="34"   y1="200" x2="58"   y2="200" class="orbit-tick" />
+          <line x1="1142" y1="200" x2="1166" y2="200" class="orbit-tick" />
 
           <!-- glowing core -->
-          <circle cx="150" cy="150" r="12" class="orbit-halo" />
-          <circle cx="150" cy="150" r="5"  class="orbit-core" />
+          <circle cx="600" cy="200" r="46" fill="url(#core-glow)" />
+          <circle cx="600" cy="200" r="6"  class="orbit-core" />
 
-          <!-- tick marks around outer ring -->
-          <g class="orbit-ticks">
-            <line x1="150" y1="14"  x2="150" y2="24"  class="orbit-tick" />
-            <line x1="150" y1="276" x2="150" y2="286" class="orbit-tick" />
-            <line x1="14"  y1="150" x2="24"  y2="150" class="orbit-tick" />
-            <line x1="276" y1="150" x2="286" y2="150" class="orbit-tick" />
+          <!-- orbiting bodies tracking their ellipses -->
+          <g>
+            <circle r="6" class="orbit-node gold" />
+            <animateMotion dur="22s" repeatCount="indefinite" rotate="0">
+              <mpath href="#o1" xlink:href="#o1" /></animateMotion>
           </g>
-
-          <!-- orbiting bodies -->
-          <g class="orbit-spin fast">
-            <circle cx="150" cy="116" r="4"   class="orbit-node gold" />
+          <g>
+            <circle r="4.5" class="orbit-node blue" />
+            <animateMotion dur="34s" begin="-17s" repeatCount="indefinite" rotate="0">
+              <mpath href="#o2" xlink:href="#o2" /></animateMotion>
           </g>
-          <g class="orbit-spin mid">
-            <circle cx="150" cy="84"  r="3.2" class="orbit-node blue" />
-            <circle cx="216" cy="150" r="2.4" class="orbit-node gold" />
+          <g>
+            <circle r="3.5" class="orbit-node gold" />
+            <animateMotion dur="34s" begin="-4s" repeatCount="indefinite" rotate="0">
+              <mpath href="#o2" xlink:href="#o2" /></animateMotion>
           </g>
-          <g class="orbit-spin slow">
-            <circle cx="150" cy="52"  r="3.6" class="orbit-node gold" />
-            <circle cx="248" cy="150" r="2.6" class="orbit-node blue" />
+          <g>
+            <circle r="5" class="orbit-node gold" />
+            <animateMotion dur="50s" begin="-12s" repeatCount="indefinite" rotate="0"
+                           keyPoints="1;0" keyTimes="0;1" calcMode="linear">
+              <mpath href="#o3" xlink:href="#o3" /></animateMotion>
+          </g>
+          <g>
+            <circle r="3" class="orbit-node blue" />
+            <animateMotion dur="66s" begin="-30s" repeatCount="indefinite" rotate="0">
+              <mpath href="#o4" xlink:href="#o4" /></animateMotion>
           </g>
         </g>
       </svg>
