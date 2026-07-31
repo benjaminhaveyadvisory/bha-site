@@ -35,7 +35,7 @@ const articleSchema = {
   "description": article.data.summary,
   "datePublished": article.data.date.toISOString(),
   "dateModified": article.data.date.toISOString(),
-  "url": `https://benjaminhavey.com/articles/${article.id}`,
+  "url": `https://benjaminhavey.com/articles/${article.id}/`,
   ...(article.data.hero ? {
     "image": {
       "@type": "ImageObject",
@@ -58,16 +58,24 @@ const articleSchema = {
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": `https://benjaminhavey.com/articles/${article.id}`
+    "@id": `https://benjaminhavey.com/articles/${article.id}/`
   }
 };
 ---
-<Base title={`${article.data.title} — Ben Havey`} description={article.data.summary}>
+<Base
+  title={`${article.data.title} — Ben Havey`}
+  description={article.data.summary}
+  ogTitle={article.data.title}
+  ogType="article"
+  publishedTime={article.data.date.toISOString()}
+  image={article.data.hero ?? "/images/og-homepage.webp"}
+  imageAlt={article.data.heroAlt ?? article.data.title}
+>
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   <article class="post">
     <div class="hero-glow" style="opacity:0.5;"></div>
     <div class="post-wrap">
-      <a class="back-link" href="/articles">← All articles</a>
+      <a class="back-link" href="/articles/">← All articles</a>
       <div class="post-meta">{fmt(article.data.date)}{article.data.series ? ` · ${article.data.series}` : ""}</div>
       <h1>{article.data.title}</h1>
       {article.data.hero && (
@@ -80,7 +88,7 @@ const articleSchema = {
       {article.data.series && (prevPart || nextPart) && (
         <nav class="series-nav">
           {prevPart ? (
-            <a class="series-link prev" href={`/articles/${prevPart.id}`}>
+            <a class="series-link prev" href={`/articles/${prevPart.id}/`}>
               <div class="dir">← Previous in series</div>
               <div class="st">{prevPart.data.title}</div>
             </a>
@@ -91,7 +99,7 @@ const articleSchema = {
             </span>
           )}
           {nextPart ? (
-            <a class="series-link next" href={`/articles/${nextPart.id}`}>
+            <a class="series-link next" href={`/articles/${nextPart.id}/`}>
               <div class="dir">Next in series →</div>
               <div class="st">{nextPart.data.title}</div>
             </a>

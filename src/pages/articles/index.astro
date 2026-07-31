@@ -22,7 +22,7 @@ const fmt = (d) =>
 
       <div class="article-list">
         {articles.map((article) => (
-          <a class="article-row" href={`/articles/${article.id}`}>
+          <a class="article-row" href={`/articles/${article.id}/`}>
             <time datetime={article.data.date.toISOString()}>{fmt(article.data.date)}</time>
             <div>
               <h3>{article.data.title}</h3>

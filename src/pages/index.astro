@@ -9,7 +9,10 @@ const latest = (await getCollection("articles", ({ data }) => !data.draft))
 const fmt = (d) =>
   d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
 ---
-<Base>
+<Base
+  ogTitle="Ben Havey — Storytelling & Technology"
+  ogDescription="Technology executive and studio creative innovator. Advisory at the intersection of media, AI, and immersive content."
+>
 <header class="hero">
   <div class="hero-glow"></div>
   <div class="hero-glow two"></div>
@@ -97,11 +100,11 @@ const fmt = (d) =>
         <div class="sec-label">Latest Articles</div>
         <h2 class="sec-head">Field notes on <em>media &amp; technology</em>.</h2>
       </div>
-      <a class="latest-all" href="/articles">All articles →</a>
+      <a class="latest-all" href="/articles/">All articles →</a>
     </div>
     <div class="latest-grid">
       {latest.map((article) => (
-        <a class="latest-card reveal" href={`/articles/${article.id}`}>
+        <a class="latest-card reveal" href={`/articles/${article.id}/`}>
           {article.data.hero && (
             <div class="latest-thumb"><img src={article.data.hero} alt={article.data.heroAlt ?? article.data.title} loading="lazy" /></div>
           )}
