@@ -89,7 +89,14 @@ All article graphics follow this visual language:
 - **Hero images:** 1200×630px WebP (standard OG size)
 - **Landscape/data graphics:** 1200×variable WebP
 
-Generate images with Python + Pillow using DejaVu fonts available on the system:
+**Article heroes: use `scripts/make_hero.py`.** It encodes the exact house layout
+(measured from the existing heroes, reproduces them byte-for-byte). Add an entry to
+its `HEROES` dict and run `python3 scripts/make_hero.py <name>` — output lands at
+`public/images/<name>-hero.webp`. Motifs available: `motif_loop`, `motif_orbit`,
+`motif_arc`, `motif_none`. Don't hand-roll a new hero script; the whole point is
+that the set stays visually consistent.
+
+Generate other images (landscape/data graphics) with Python + Pillow using DejaVu fonts available on the system:
 - `/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf`
 - `/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf`
 - `/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf`

@@ -3,7 +3,7 @@ title: "The ImageGen Wars: From Prompt to Pixel — and Now to Courtroom"
 date: 2026-06-22
 summary: "Eleven platforms, three tiers, and one unresolved legal question. A field guide to the image generation market in 2026 — from Midjourney's aesthetic dominance to the Eastern models nobody's indemnifying."
 hero: "/images/imagegen-wars-hero.webp"
-heroAlt: "The ImageGen Wars — From prompt to pixel, and now to courtroom. State of the Union in AI, Article II of IV."
+heroAlt: "The ImageGen Wars — a dark navy title card reading 'From prompt to pixel — and now to courtroom.' State of the Union in AI, Part 2 of 4."
 series: "State of the Union in AI · Part 2 of 4"
 seriesSlug: "state-of-the-union-in-ai"
 seriesPart: 2

@@ -3,7 +3,7 @@ title: "The 'Lab Bench' Just Became Obsolete: The Rise of the AI Scientist"
 date: 2026-04-20
 summary: "A landmark Nature study describes a fully automated R&D system that ran the entire research pipeline — ideation, execution, manuscript, peer review — in days. The human role shifts from execution to curation."
 hero: "/images/ai-scientist.webp"
-heroAlt: "The AI Scientist: the closed-loop research pipeline from ideation to recursive peer review, R&D cycle compression, and the governance paradox."
+heroAlt: "The AI Scientist — a dark navy title card reading 'A closed research loop that runs ideation to peer review in a matter of days.'"
 draft: false
 ---
 

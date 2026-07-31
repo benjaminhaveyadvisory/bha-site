@@ -3,7 +3,7 @@ title: "The 'Inference Tax' Just Dropped: Why TurboQuant Is a Game Changer"
 date: 2026-04-15
 summary: "Google Research changed the math on the KV Cache — the memory bottleneck behind every long-context conversation. A look at zero-overhead compression, the numbers, and why Jevons Paradox means demand goes up, not down."
 hero: "/images/turboquant.webp"
-heroAlt: "TurboQuant: zero-overhead KV-cache compression. A graphic covering the two-stage PolarQuant and QJL process, 6x memory and 8x speed gains, and the Jevons Paradox implication."
+heroAlt: "The Inference Tax Dropped — a dark navy title card reading 'Zero-overhead KV-cache compression — and why demand goes up, not down.'"
 draft: false
 ---
 

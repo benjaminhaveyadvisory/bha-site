@@ -3,7 +3,7 @@ title: "The Google Zero Era Is Here — and It's Rewriting Digital Marketing"
 date: 2026-06-10
 summary: "Nearly two-thirds of Google searches now end without a click. A look at the structural shift to answer engines, the Referral Quality Paradox, and how Generative Engine Optimization captures what's left."
 hero: "/images/google-zero.webp"
-heroAlt: "The Google Zero Era: the click collapse (64.82% zero-click), the Referral Quality Paradox, and the three-tactic GEO framework."
+heroAlt: "The Google Zero Era — a dark navy title card reading 'Two-thirds of searches now end without a single click.'"
 draft: false
 ---
 

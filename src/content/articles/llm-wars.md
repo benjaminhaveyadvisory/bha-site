@@ -3,7 +3,7 @@ title: "The LLM Wars: Who's Winning the Battle for Your Brain?"
 date: 2026-06-15
 summary: "Three tech titans, one prize: the place people go to think. A look past the headlines into how people actually adopt and abandon ChatGPT, Gemini, and Claude — and why loyalty is paper-thin."
 hero: "/images/llm-wars-hero.webp"
-heroAlt: "The LLM Wars — Who's winning the battle for your brain? State of the Union in AI, Article I of IV."
+heroAlt: "The LLM Wars — a dark navy title card reading 'Three tech titans, one prize: the place people go to think.' State of the Union in AI, Part 1 of 4."
 series: "State of the Union in AI · Part 1 of 4"
 seriesSlug: "state-of-the-union-in-ai"
 seriesPart: 1

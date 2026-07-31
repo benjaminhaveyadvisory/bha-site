@@ -3,7 +3,7 @@ title: "The VideoGen Wars: Who Owns the Final Frame?"
 date: 2026-06-29
 summary: "Fourteen platforms, three tiers, and one question every legal department eventually asks. A field guide to the video generation market in 2026 — from Runway's shot consistency to the provenance problem that decides who survives contact with a production budget."
 hero: "/images/videogen-wars-hero.webp"
-heroAlt: "The VideoGen Wars — Who owns the final frame? State of the Union in AI, Article III of IV."
+heroAlt: "The VideoGen Wars — a dark navy title card reading 'Fourteen platforms, three tiers, and one question: who owns the final frame?' State of the Union in AI, Part 3 of 4."
 series: "State of the Union in AI · Part 3 of 4"
 seriesSlug: "state-of-the-union-in-ai"
 seriesPart: 3

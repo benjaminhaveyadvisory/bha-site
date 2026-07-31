@@ -3,7 +3,7 @@ title: "Welcome to the Era of Agentic Discovery"
 date: 2026-05-15
 summary: "If you work in media or retail, the way customers find you is undergoing a massive rewrite. AI agents are now doing the hunting, reading, and shopping on our behalf — and that shifts the entire playbook."
 hero: "/images/agentic-discovery.webp"
-heroAlt: "Agentic Discovery: the shift from keyword search to agent-driven discovery, zero-friction in-chat commerce, and the new playbook for media and retail."
+heroAlt: "Agentic Discovery — a dark navy title card reading 'Agents now hunt, read, and buy on our behalf. The whole playbook changed.'"
 draft: false
 ---
 
