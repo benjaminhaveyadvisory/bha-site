@@ -86,7 +86,7 @@ const fmt = (d) =>
     </h1>
     <p class="lede">I've spent my career as the connective tissue between Silicon Valley engineering and Hollywood storytelling — a film lover who builds the technology that expands what stories can be. For 25+ years I've led product and innovation at the companies defining digital entertainment: from Netscape during the browser wars, to Apple's early mobile video, to founding Disney's StudioLAB, to driving AI and Direct-to-Consumer innovation at Universal Pictures.</p>
     <div class="callouts">
-      <span class="chip">Emmy Award winner</span>
+      <span class="chip">Emmy winner · {counts.wins} awards across {counts.projects} projects</span>
       <span class="chip">10 patents — AI, ML, AR</span>
       <span class="chip">Board, Creators Guild of America</span>
       <span class="chip">Advisory Board, Infinity Festival Hollywood</span>
@@ -287,13 +287,6 @@ const fmt = (d) =>
     <div class="rec-grid">
       <div class="rec-col reveal">
         <h4>Honors</h4>
-        <div class="emmy-accent">
-          <span class="emmy-mark">★</span>
-          <div>
-            <strong>Primetime Emmy Award</strong>
-            <span>Recognized for excellence in technology &amp; innovation</span>
-          </div>
-        </div>
         <ul class="rec-strip">
           {headlineHonors.map((h) => (
             <li>
