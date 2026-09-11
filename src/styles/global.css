@@ -375,3 +375,59 @@
     .logo-mark { font-size: 1.1rem; }
     .logo-divider { display: none; }
   }
+
+  /* ---------- Recognition page (/recognition/) ---------- */
+  .rec-hero { padding-bottom: 70px; }
+  .rec-stats { display: flex; gap: 0; margin-top: 8px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+  .rec-stats > div { flex: 1 1 140px; padding: 22px 24px 22px 0; border-right: 1px solid var(--line); margin-right: 24px; }
+  .rec-stats > div:last-child { border-right: none; margin-right: 0; }
+  .rec-stats strong { display: block; font-family: 'Fraunces', serif; font-weight: 400; font-size: 2.4rem; line-height: 1; color: var(--gold); font-variant-numeric: tabular-nums; }
+  .rec-stats span { display: block; margin-top: 8px; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-dim); }
+
+  .rec-record { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 80px 0 40px; }
+  .rec-project { padding: 44px 0 52px; border-bottom: 1px solid var(--line); }
+  .rec-project:first-child { padding-top: 0; }
+  .rec-project:last-child { border-bottom: none; }
+  .rec-project-head { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: 22px; }
+  .rec-project-head h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(1.5rem, 2.6vw, 2rem); letter-spacing: -0.01em; line-height: 1.15; }
+  .rec-org { font-size: 0.85rem; color: var(--ink-dim); letter-spacing: 0.04em; margin-top: 8px; }
+  .rec-span { font-family: 'Inter', sans-serif; font-size: 0.85rem; color: var(--gold); letter-spacing: 0.08em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  .rec-honors { list-style: none; border-top: 1px solid var(--line); }
+  .rec-honors li { display: grid; grid-template-columns: 64px 220px 1fr auto; gap: 24px; align-items: baseline; padding: 15px 0; border-bottom: 1px solid var(--line); }
+  .rec-year { font-size: 0.85rem; color: var(--ink-dim); letter-spacing: 0.04em; font-variant-numeric: tabular-nums; }
+  .rec-body { color: var(--ink); font-size: 1rem; }
+  .rec-cat { color: var(--ink-soft); font-size: 0.95rem; }
+  .rtag { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-dim); border: 1px solid var(--line); border-radius: 100px; padding: 4px 11px; white-space: nowrap; justify-self: end; }
+  .rtag.win { color: var(--gold); border-color: rgba(201,168,106,0.45); background: rgba(201,168,106,0.08); }
+
+  .rec-patents { padding: 90px 0 110px; }
+  .rec-patents-lede { color: var(--ink-soft); max-width: 58ch; margin-bottom: 28px; }
+  .rec-pat-grid { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0 56px; border-top: 1px solid var(--line); }
+  .rec-pat-grid li { padding: 13px 0; border-bottom: 1px solid var(--line); color: var(--ink-soft); font-size: 1rem; }
+
+  @media (max-width: 820px){
+    .rec-honors li { grid-template-columns: 64px 1fr auto; }
+    .rec-cat { grid-column: 2 / 3; }
+    .rtag { grid-row: 1; grid-column: 3; }
+    .rec-pat-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px){
+    .rec-stats > div { flex: 1 1 calc(50% - 24px); }
+    .rec-stats > div:nth-child(2) { border-right: none; }
+    .rec-project-head { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .rec-honors li { grid-template-columns: 1fr auto; gap: 6px 16px; }
+    .rec-year { grid-column: 1; }
+    .rec-body, .rec-cat { grid-column: 1 / 2; }
+    .rtag { grid-row: 1; grid-column: 2; }
+  }
+
+  /* homepage recognition strip */
+  .rec-strip { list-style: none; }
+  .rec-strip li { display: grid; grid-template-columns: 48px 1fr auto; gap: 16px; align-items: baseline; padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 1rem; }
+  .rec-strip li:first-child { border-top: 1px solid var(--line); }
+  .rec-strip .rec-year { font-size: 0.8rem; }
+  .rec-strip strong { display: block; color: var(--ink); font-weight: 500; }
+  .rec-strip span.what { display: block; color: var(--ink-soft); font-size: 0.9rem; margin-top: 2px; }
+  .rec-more { display: inline-flex; align-items: center; gap: 10px; margin-top: 22px; color: var(--accent-warm); text-decoration: none; font-size: 0.95rem; letter-spacing: 0.02em; transition: gap 0.25s; }
+  .rec-more:hover { gap: 16px; }

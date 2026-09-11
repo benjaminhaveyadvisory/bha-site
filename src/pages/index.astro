@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import { getCollection } from "astro:content";
+import { headlineHonors, patents, counts } from "../data/recognition";
 
 const latest = (await getCollection("articles", ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
@@ -293,24 +294,26 @@ const fmt = (d) =>
             <span>Recognized for excellence in technology &amp; innovation</span>
           </div>
         </div>
-        <ul>
-          <li>Emmy Award nominee</li>
-          <li>Webby Award nomination</li>
+        <ul class="rec-strip">
+          {headlineHonors.map((h) => (
+            <li>
+              <span class="rec-year">{h.year}</span>
+              <div>
+                <strong>{h.project}</strong>
+                <span class="what">{h.body} · {h.category.split(" — ")[0]}</span>
+              </div>
+              <span class={h.result === "Winner" ? "rtag win" : "rtag"}>{h.result}</span>
+            </li>
+          ))}
         </ul>
+        <a class="rec-more" href="/recognition/">See all {counts.honors} honors across {counts.projects} projects <span aria-hidden="true">→</span></a>
       </div>
       <div class="rec-col reveal">
         <h4>Patents &amp; filings</h4>
         <ul class="pat-list">
-          <li><a href="https://patents.google.com/patent/US11610239B2" target="_blank" rel="noopener">Machine-learning, user-specific evaluations <span class="pat-no">US 11,610,239</span></a></li>
-          <li><a href="https://patents.google.com/patent/US10777008B2" target="_blank" rel="noopener">Drones generating air-flow effects for VR / AR users <span class="pat-no">US 10,777,008</span></a></li>
-          <li><a href="https://patents.google.com/patent/US10311917B2" target="_blank" rel="noopener">Personalized video featuring a selected person <span class="pat-no">US 10,311,917</span></a></li>
-          <li><a href="https://patents.google.com/patent/US10671670B2" target="_blank" rel="noopener">Graph-based content browsing &amp; discovery <span class="pat-no">US 10,671,670</span></a></li>
-          <li><a href="https://patents.google.com/patent/US10665023B2" target="_blank" rel="noopener">Improved augmented reality content delivery <span class="pat-no">US 10,665,023</span></a></li>
-          <li><a href="https://patents.google.com/patent/US10394324B2" target="_blank" rel="noopener">Adjusting user experience based on biological response <span class="pat-no">US 10,394,324</span></a></li>
-          <li><a href="https://patents.google.com/patent/US10269158B2" target="_blank" rel="noopener">AR / VR digital content representation &amp; interaction <span class="pat-no">US 10,269,158</span></a></li>
-          <li><a href="https://patents.google.com/patent/US10627909B2" target="_blank" rel="noopener">Simulation experience with physical objects <span class="pat-no">US 10,627,909</span></a></li>
-          <li><a href="https://patents.google.com/patent/US10140754B1" target="_blank" rel="noopener">Modeling lighting for location scouting <span class="pat-no">US 10,140,754</span></a></li>
-          <li><a href="https://patents.google.com/patent/US20250209435A1" target="_blank" rel="noopener">Home entertainment content &amp; enhanced ticketing <span class="pat-no">App. 2025/0209435</span></a></li>
+          {patents.map((pt) => (
+            <li><a href={pt.url} target="_blank" rel="noopener">{pt.title} <span class="pat-no">{pt.number}</span></a></li>
+          ))}
         </ul>
       </div>
     </div>

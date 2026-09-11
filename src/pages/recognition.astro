@@ -1,0 +1,69 @@
+---
+import Base from "../layouts/Base.astro";
+import { projects, patents, counts } from "../data/recognition";
+
+const span = (p) => {
+  const ys = p.honors.map((h) => h.year);
+  const lo = Math.min(...ys), hi = Math.max(...ys);
+  return lo === hi ? `${lo}` : `${lo} — ${hi}`;
+};
+const tagClass = (r) => (r === "Winner" ? "rtag win" : "rtag");
+---
+<Base
+  title="Recognition — Ben Havey"
+  description="Awards, nominations, and patents across 20 years of interactive and immersive media work — Emmy, Cannes Lions, Clio, PGA, VES, Webby, and VR Awards."
+>
+  <section class="articles-hero rec-hero">
+    <div class="hero-glow"></div>
+    <div class="wrap">
+      <div class="sec-label">Recognition</div>
+      <h1 style="font-family:'Fraunces',serif; font-weight:400; font-size:clamp(2.4rem,5vw,4rem); line-height:1.05; letter-spacing:-0.02em;">The work that <em style="font-style:italic; color:var(--accent);">made the cut</em>.</h1>
+      <p class="lede" style="opacity:1; animation:none; margin-top:24px;">Awards and nominations earned by projects I led or helped build, from the first live TV on a phone to the VR series that put audiences inside a Star Wars story. Grouped by project, in the order they happened.</p>
+
+      <div class="rec-stats">
+        <div><strong>{counts.honors}</strong><span>honors</span></div>
+        <div><strong>{counts.wins}</strong><span>wins</span></div>
+        <div><strong>{counts.projects}</strong><span>projects</span></div>
+        <div><strong>{patents.length}</strong><span>patents &amp; filings</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rec-record">
+    <div class="wrap">
+      {projects.map((p) => (
+        <article class="rec-project reveal">
+          <header class="rec-project-head">
+            <div>
+              <h2>{p.name}</h2>
+              <div class="rec-org">{p.org}</div>
+            </div>
+            <div class="rec-span">{span(p)}</div>
+          </header>
+          <ul class="rec-honors">
+            {p.honors.map((h) => (
+              <li>
+                <span class="rec-year">{h.year}</span>
+                <span class="rec-body">{h.body}</span>
+                <span class="rec-cat">{h.category}</span>
+                <span class={tagClass(h.result)}>{h.result}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="rec-patents">
+    <div class="wrap">
+      <div class="sec-label reveal">Patents &amp; filings</div>
+      <p class="rec-patents-lede reveal">Issued patents and pending applications in machine learning, immersive media, and content discovery.</p>
+      <ul class="pat-list rec-pat-grid reveal">
+        {patents.map((pt) => (
+          <li><a href={pt.url} target="_blank" rel="noopener">{pt.title} <span class="pat-no">{pt.number}</span></a></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Base>
