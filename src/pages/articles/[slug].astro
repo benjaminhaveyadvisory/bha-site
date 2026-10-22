@@ -1,6 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import { getCollection, render } from "astro:content";
+import { PERSON_ID, PERSON_SAME_AS } from "../../lib/person";
 
 export async function getStaticPaths() {
   const articles = await getCollection("articles", ({ data }) => !data.draft);
@@ -44,18 +45,18 @@ const articleSchema = {
       "height": 630
     }
   } : {}),
+  // Declare the LinkedIn copy as the same work so search engines treat this
+  // page as the author's original rather than a duplicate of LinkedIn's.
+  ...(article.data.linkedin ? { "sameAs": [article.data.linkedin] } : {}),
   "author": {
     "@type": "Person",
+    "@id": PERSON_ID,
     "name": "Ben Havey",
     "url": "https://benjaminhavey.com",
     "jobTitle": "Technology & Innovation Executive",
-    "sameAs": ["https://www.linkedin.com/in/benjaminhavey/"]
+    "sameAs": PERSON_SAME_AS
   },
-  "publisher": {
-    "@type": "Person",
-    "name": "Ben Havey",
-    "url": "https://benjaminhavey.com"
-  },
+  "publisher": { "@id": PERSON_ID },
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": `https://benjaminhavey.com/articles/${article.id}/`

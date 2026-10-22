@@ -4,6 +4,7 @@ date: 2026-09-21
 summary: "The biggest jump Siri has ever made, the architecture is the story, and the gaps are exactly where I expected them. Three days with an iPhone 18 Pro Max, from the school run to CarPlay."
 hero: "/images/siri-ai-hero.webp"
 heroAlt: "Three Days with Siri AI — a dark navy title card reading 'First impressions from someone who wanted to like it.'"
+linkedin: "https://www.linkedin.com/pulse/three-days-siri-ai-first-impressions-from-someone-who-ben-havey-txpae/"
 draft: false
 ---
 

@@ -12,6 +12,7 @@ const articles = defineCollection({
     series: z.string().optional(),
     seriesSlug: z.string().optional(),
     seriesPart: z.number().optional(),
+    linkedin: z.string().url().optional(),   // canonical LinkedIn Pulse URL of the same piece
     draft: z.boolean().default(false),
   }),
 });

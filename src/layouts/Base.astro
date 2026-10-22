@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { PERSON_ID, PERSON_SAME_AS } from "../lib/person";
 const SITE = "https://benjaminhavey.com";
 const {
   title = "Ben Havey — At the Intersection of Storytelling & Technology",
@@ -47,13 +48,15 @@ const ogImage = new URL(image, SITE);
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": PERSON_ID,
     "name": "Ben Havey",
     "alternateName": "Benjamin Havey",
     "url": "https://benjaminhavey.com",
+    "email": "mailto:me@benjaminhavey.com",
     "jobTitle": "Technology & Innovation Executive",
     "description": "Emmy Award-winning technology executive and studio creative innovator working at the intersection of media, entertainment, and emerging technology.",
     "address": { "@type": "PostalAddress", "addressLocality": "Los Angeles", "addressRegion": "CA", "addressCountry": "US" },
-    "sameAs": ["https://www.linkedin.com/in/benjaminhavey/"],
+    "sameAs": PERSON_SAME_AS,
     "alumniOf": [
       { "@type": "Organization", "name": "The Walt Disney Studios" },
       { "@type": "Organization", "name": "NBCUniversal" },

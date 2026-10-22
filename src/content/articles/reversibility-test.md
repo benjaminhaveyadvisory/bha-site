@@ -4,6 +4,7 @@ date: 2026-10-22
 summary: "OpenAI shipped Dots, Meta shipped Muse, and now Duet has arrived — three bets that we're ready to stop chatting with AI and start delegating to it. A simpler way to judge whether that bet pays off: can the mistake be undone?"
 hero: "/images/reversibility-test-hero.webp"
 heroAlt: "The Reversibility Test — a dark navy title card reading 'Agents succeed where mistakes are cheap to undo. Capability is not the constraint.'"
+linkedin: "https://www.linkedin.com/pulse/reversibility-test-benjamin-havey-usvkc/"
 draft: false
 ---
 
