@@ -9,7 +9,7 @@ export const GET: APIRoute = async () => {
   const lines = [
     "# Ben Havey",
     "",
-    "> Emmy Award-winning technology executive and studio creative innovator with 25+ years building the future of entertainment. Founder of Disney's StudioLAB, with leadership roles at Universal Pictures, Apple, NBC, and Netscape. Principal of Benjamin Havey Advisory; co-founder of The Agent Layer and Pixel & Pulse Partners. Writes on AI, agentic discovery, media technology, and the shifts reshaping how stories get made and found.",
+    "> Emmy Award-winning technology executive and studio creative innovator with 30 years building the future of entertainment. Founder of Disney's StudioLAB, with leadership roles at Universal Pictures, Apple, NBC, and Netscape. Principal of Benjamin Havey Advisory; co-founder of The Agent Layer and Pixel & Pulse Partners. Writes on AI, agentic discovery, media technology, and the shifts reshaping how stories get made and found.",
     "",
     "## About",
     "",
