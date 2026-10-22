@@ -397,6 +397,14 @@ HEROES = {
         byline="BEN HAVEY ON LINKEDIN · 4 MIN READ",
         motif=motif_undo,
     ),
+    "siri-ai": dict(
+        out_name="siri-ai-hero.webp",
+        title_lines=["THREE DAYS", "WITH SIRI AI"],
+        sub_lines=["First impressions from someone",
+                   "who wanted to like it."],
+        byline="BEN HAVEY ON LINKEDIN · 6 MIN READ",
+        motif=motif_orbit,
+    ),
 }
 
 
