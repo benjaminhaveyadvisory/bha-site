@@ -241,6 +241,19 @@ def motif_compress(d):
                fill=GOLD, width=2 * S, joint="curve")
 
 
+def motif_undo(d):
+    """A return arc with an arrowhead — the action that can be walked back."""
+    cx, cy, r = 1070, 100, 40
+    d.arc([(cx - r) * S, (cy - r) * S, (cx + r) * S, (cy + r) * S],
+          start=200, end=520, fill=GOLD, width=2 * S)
+    th = math.radians(200)
+    ax, ay = cx + r * math.cos(th), cy + r * math.sin(th)
+    for dx, dy in ((14, 2), (4, -13)):
+        d.line([(ax * S, ay * S), ((ax + dx) * S, (ay + dy) * S)], fill=GOLD, width=2 * S)
+    d.ellipse([(cx - 5) * S, (cy - 5) * S, (cx + 5) * S, (cy + 5) * S], fill=GOLD_LT)
+    d.line([((cx - 4) * S, (cy + 12) * S), ((cx + 4) * S, (cy + 12) * S)], fill=(150, 126, 82), width=2 * S)
+
+
 def motif_none(d):
     pass
 
@@ -376,6 +389,13 @@ HEROES = {
                    "and why demand goes up, not down."],
         byline="BEN HAVEY ON LINKEDIN · 2 MIN READ",
         motif=motif_compress,
+    ),
+    "reversibility-test": dict(
+        title_lines=["REVERSIBILITY", "TEST"],
+        sub_lines=["Agents succeed where mistakes are cheap",
+                   "to undo. Capability is not the constraint."],
+        byline="BEN HAVEY ON LINKEDIN · 4 MIN READ",
+        motif=motif_undo,
     ),
 }
 
